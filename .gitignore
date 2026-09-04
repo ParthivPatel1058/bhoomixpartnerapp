@@ -1,0 +1,16 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+.vercel
+.env*
+
+# Contains live plaintext credentials for the seeded test staff accounts
+# (admin/manager/distributor). Never commit this — rotate the passwords
+# and re-seed locally instead of relying on git history to hide it.
+supabase/seed_staff_accounts.sql

@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/*
+ * Tailwind v4 reads design tokens from `@theme`, not from a plain `:root` block.
+ * These were previously declared under `:root`, which meant none of the
+ * semantic utilities below (bg-surface, text-on-surface, bg-secondary, ...)
+ * generated any CSS and the whole app rendered with default colors.
+ */
+@theme {
+  --color-background: #fff8f2;
+  --color-on-background: #211b0f;
+
+  --color-surface: #fff8f2;
+  --color-surface-container-low: #fff2df;
+  --color-surface-container: #faecd9;
+  --color-surface-container-high: #f4e6d3;
+  --color-surface-variant: #eee1ce;
+  --color-on-surface: #211b0f;
+  --color-on-surface-variant: #47473f;
+
+  --color-primary: #5e604d;
+  --color-primary-container: #e4e5cb;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1b1c0a;
+
+  --color-secondary: #006a6a;
+  --color-secondary-container: #00f8f8;
+  --color-secondary-fixed: #9df1f1;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #006e6e;
+
+  --color-tertiary: #006a6a;
+  --color-tertiary-container: #c0fffe;
+  --color-tertiary-fixed: #c0fffe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #00504f;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  --color-outline: #7a7a6f;
+  --color-outline-variant: #c8c7bc;
+}
+
+@layer base {
+  html {
+    /* Stops iOS/Android from re-flowing text when the phone rotates. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: 'Inter', sans-serif;
+    /* Blocks the browser's pull-to-refresh, which otherwise fires while a
+       partner is panning the delivery map. */
+    overscroll-behavior-y: none;
+    /* Removes the grey flash Android paints over every tap. */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /*
+   * iOS zooms the viewport whenever a focused field is under 16px, which
+   * throws the layout off mid-form. Keep every control at 16px on phones and
+   * only shrink on pointer-precise screens.
+   */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  @media (min-width: 640px) {
+    input,
+    select,
+    textarea {
+      font-size: 14px;
+    }
+  }
+
+  /* Cuts the ~300ms tap delay on touch devices. */
+  button,
+  a,
+  [role='button'] {
+    touch-action: manipulation;
+  }
+
+  /* Respect a partner's reduced-motion setting — the app is full of pulses. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: -20; }
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(0, 106, 106, 0.2)); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(0, 106, 106, 0.4)); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(12px); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Live GPS puck on the navigation map. */
+@keyframes gpsPing {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  70% { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.glass-card {
+  background: rgba(250, 236, 217, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(250, 236, 217, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.08);
+  transform: translateY(-2px);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Leaflet sits under the app chrome; its panes must not fight our z-indexes. */
+.leaflet-container {
+  background: #eae5dd;
+  font-family: 'Inter', sans-serif;
+}
+
+.leaflet-pane,
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 1 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0, 106, 106, 0.18);
+}
+
+.leaflet-popup-content {
+  margin: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #211b0f;
+}

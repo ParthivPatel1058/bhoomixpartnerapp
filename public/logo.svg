@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-label="BhoomiX Partner">
+  <defs>
+    <!-- Chrome needs shadow stops as well as highlights. An all-white tail
+         vanished against the app's cream surface; banding light into mid-slate
+         keeps the metallic read on both dark and light backgrounds. -->
+    <linearGradient id="bxblue" x1="862" y1="62" x2="1102" y2="262" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="32%" stop-color="#3b82f6"/>
+      <stop offset="56%" stop-color="#e2e8f0"/>
+      <stop offset="74%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#b8c2cf"/>
+    </linearGradient>
+    <linearGradient id="bxpurple" x1="862" y1="262" x2="1102" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="26%" stop-color="#c4b5fd"/>
+      <stop offset="50%" stop-color="#f1f5f9"/>
+      <stop offset="68%" stop-color="#64748b"/>
+      <stop offset="86%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+    <linearGradient id="bxpartner" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="bxlinel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="bxliner" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- bhoomi -->
+  <g fill="none" stroke="currentColor" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 55 V230"/>
+    <circle cx="112.5" cy="177.5" r="52.5"/>
+    <path d="M195 55 V230"/>
+    <path d="M195 177.5 A52.5 52.5 0 0 1 300 177.5 V230"/>
+    <circle cx="382.5" cy="177.5" r="52.5"/>
+    <circle cx="517.5" cy="177.5" r="52.5"/>
+    <path d="M600 125 V230"/>
+    <path d="M600 177.5 A45 52.5 0 0 1 690 177.5 V230"/>
+    <path d="M690 177.5 A45 52.5 0 0 1 780 177.5 V230"/>
+    <path d="M810 125 V230"/>
+  </g>
+  <circle cx="810" cy="82" r="10" fill="currentColor"/>
+
+  <!-- X -->
+  <g stroke-width="54" fill="none">
+    <line x1="862" y1="62" x2="1102" y2="262" stroke="url(#bxblue)"/>
+    <line x1="862" y1="262" x2="1102" y2="62" stroke="url(#bxpurple)"/>
+  </g>
+
+  <!-- PARTNER. Hairlines sit clear of the text: at this size the word spans
+       roughly x=370..830, so they start beyond that with a visible gap. -->
+  <line x1="150" y1="330" x2="330" y2="330" stroke="url(#bxlinel)" stroke-width="3"/>
+  <line x1="870" y1="330" x2="1050" y2="330" stroke="url(#bxliner)" stroke-width="3"/>
+  <text x="600" y="330" dx="12" text-anchor="middle" dominant-baseline="middle"
+        fill="url(#bxpartner)" font-family="Inter, system-ui, sans-serif"
+        font-size="64" font-weight="600" letter-spacing="24">PARTNER</text>
+</svg>

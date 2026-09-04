@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="ixblue" x1="150" y1="150" x2="362" y2="362" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="34%" stop-color="#3b82f6"/>
+      <stop offset="62%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="ixpurple" x1="150" y1="362" x2="362" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="30%" stop-color="#c4b5fd"/>
+      <stop offset="58%" stop-color="#e2e8f0"/>
+      <stop offset="80%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+  </defs>
+  <!-- Near-black plate, matching the artwork the X was designed against. -->
+  <rect width="512" height="512" rx="112" fill="#0a0a0a"/>
+  <g stroke-width="62" fill="none" stroke-linecap="butt">
+    <line x1="150" y1="150" x2="362" y2="362" stroke="url(#ixblue)"/>
+    <line x1="150" y1="362" x2="362" y2="150" stroke="url(#ixpurple)"/>
+  </g>
+</svg>

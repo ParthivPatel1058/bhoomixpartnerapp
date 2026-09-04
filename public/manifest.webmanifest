@@ -1,0 +1,26 @@
+{
+  "name": "BhoomiX Partner",
+  "short_name": "BhoomiX",
+  "description": "Accept deliveries, navigate to customers, and track your earnings.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff8f2",
+  "theme_color": "#006a6a",
+  "categories": ["business", "productivity", "navigation"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
